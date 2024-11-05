@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Transitions</title>
+    <!-- CSS -->
+    <style>
+        .fade-enter-active,
+        .fade-leave-active {
+            transition: opacity 0.5s;
+        }
+    
+        .fade-enter,
+        .fade-leave-to {
+            opacity: 0;
+        }
+
+        .slide-enter-active, .slide-leave-active {
+            transition: all 0.5s ease;
+        }
+        .slide-enter, .slide-leave-to {
+            transform: translateX(30px);
+            opacity: 0;
+        }
+    </style>
+   </head>
+<body>
+    <div id="app">
+        <button @click="showProduct = !showProduct">Toggle Product</button>
+        <transition 
+        @before-enter="beforeEnter"
+        @enter="enter"
+        @leave="leave">
+            <div v-if="showProduct">
+                <h3>{{ products[0].name }}</h3>
+                <p>Price: {{ products[0].price }}</p>
+            </div>
+        </transition>
+        <button @click="addProduct">Add Product</button>
+        <br/>
+        <button @click="removeLastProduct">Remove Last Product</button>
+        <transition-group name="slide" tag="ul">
+            <li v-for="product in products" :key="product.id">
+                {{ product.name }} - ${{ product.price }}
+            </li>
+        </transition-group>
+
+        <transition-group name="fade" tag="ul">
+            <li v-for="product in products" :key="product.id">
+                {{ product.name }} - ${{ product.price }}
+            </li>
+        </transition-group>
+
+        <button @click="toggleProduct">Toggle Product</button>
+        <transition name="fade">
+            <component :is="currentProductComponent" 
+            :key="currentProductComponent"></component>
+        </transition>
+        
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js"></script>
+    <script src="Script/transitions.js"></script>
+</body>
+</html>

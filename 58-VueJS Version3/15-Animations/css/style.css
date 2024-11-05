@@ -1,0 +1,82 @@
+/* --- Common Styles for All Examples --- */
+/* Common styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.product-card {
+    background: #f0f0f0;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Apply transition when elements enter or leave */
+.product-list-enter-active,
+.product-list-leave-active {
+    transition: opacity 0.5s ease-in-out;
+}
+
+/* Initial state for entering elements */
+.product-list-enter-from {
+    opacity: 0;
+}
+
+/* Final state for leaving elements */
+.product-list-leave-to {
+    opacity: 0;
+}
+
+.box,
+.list-item,
+.product {
+    background: #f0f0f0;
+    padding: 20px;
+    margin: 10px;
+    border-radius: 8px;
+}
+
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 1s ease;
+}
+
+.fade-enter,
+.fade-leave-to {
+    opacity: 0;
+}
+
+/* --- Transition Mode --- */
+.list-item {
+    background: #e0e0e0;
+    padding: 15px;
+    margin: 5px 0;
+    border-radius: 4px;
+    transition: opacity 0.5s ease;
+}
+
+.list-enter-active,
+.list-leave-active {
+    transition: opacity 0.5s ease;
+}
+
+.list-enter,
+.list-leave-to {
+    opacity: 0;
+}
+
+/* --- Move-class / v-move --- */
+.move-item {
+    transition: transform 0.5s ease-in-out;
+    transform: scale(1.1);
+}

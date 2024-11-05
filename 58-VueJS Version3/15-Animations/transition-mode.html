@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Transition Mode</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <transition-group name="list" mode="in-out">
+            <div v-for="item in items" :key="item.id" class="list-item">{{ item.name }}</div>
+        </transition-group>
+        <button @click="shuffleItems">Shuffle Items</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js"></script>
+    <script src="Script/animate.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,29 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.price {
+    font-size: 1.2em;
+    color: #007bff;
+}
+
+.cart-item {
+    font-size: 1.1em;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.list-group-item h6 {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.btn-outline-secondary {
+    margin-left: 5px;
+}

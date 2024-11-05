@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Components Events</title>
+</head>
+
+<body>
+<div id="app">
+    <div class="products">
+        <!-- Listen for the product-added event emitted by the ProductComponent -->
+        <product-component v-for="product in products" 
+            :key="product.id" 
+            :product="product"
+            v-model="quantities[index]"
+            @product-added="handleProductAdded">
+        </product-component>
+    </div>
+
+    <h2>Cart</h2>
+    <ul>
+        <li v-for="item in cart" :key="item.id">{{ item.name }} - ${{ item.price }} (x{{ item.quantity }})</li>
+    </ul>
+</div>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js"></script>
+<script src="Script/app.js" type="module"></script>
+</body>
+
+</html>

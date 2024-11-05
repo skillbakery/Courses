@@ -1,0 +1,52 @@
+body {
+    font-family: 'Arial', sans-serif;
+}
+
+h1 {
+    text-align: center;
+}
+
+.price {
+    font-size: 1.2em;
+    color: #007bff;
+}
+
+.cart-item {
+    font-size: 1.1em;
+}
+
+button {
+    margin-top: 10px;
+}
+
+.list-group-item h6 {
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.btn-outline-secondary {
+    margin-left: 5px;
+}
+
+.cart-icon {
+    font-size: 2.5em;
+    margin-bottom: 10px;
+    text-align: center;
+}
+.cart-default {
+    color: black;
+}
+/* Color for empty cart */
+.cart-empty {
+    color: gray;
+}
+
+/* Color for cart with items under $300 */
+.cart-under-300 {
+    color: green;
+}
+
+/* Color for cart above $300 */
+.cart-over-300 {
+    color: red;
+}

@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>Binding Directives - Vue Demo</title>
+    </head>
+    <body>
+        <h1>👋 Hello Vue.js</h1>
+        
+        <div id="app">
+            <h1>{{name}}</h1>
+            <img :src="imagePath" 
+            :alt="imageAlt"
+            :width="imageWidth" 
+            :height="imageHeight">
+        </div>
+
+        <script 
+        src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js"></script>
+        <script 
+        src="script/binding-directive.js"></script>
+    </body>
+</html>

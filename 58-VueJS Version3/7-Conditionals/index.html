@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Conditionals - Vue Demo</title>
+</head>
+<body>
+    <h1>👋 Hello Vue.js</h1>
+
+    <div id="app">
+        <h1>{{name}}</h1>
+        <!-- <template v-for="product in products" 
+        :key="product.id">
+                <div >
+                    <h3>{{ product.name }}</h3>
+                    <p v-if="product.price > 500">Expensive</p>
+                    <p v-else-if="product.price >= 300">Moderate</p>
+                    <p v-else>Affordable</p>
+                    <p v-show="product.price < 500">Discount available!</p>
+                </div>
+        </template> -->
+
+        <template v-for="product in products" :key="product.id">
+            <div v-if="product.price > 500">
+                <h3>{{ product.name }}</h3>
+            </div>
+        </template>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js"></script>
+    <script src="script/conditional.js"></script>
+</body>
+</html>

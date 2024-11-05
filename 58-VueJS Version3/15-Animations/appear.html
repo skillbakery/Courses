@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Transition - Appear Property</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <transition name="fade" appear>
+            <div v-if="isVisible" class="box">I appear!</div>
+        </transition>
+        <button @click="toggleVisibility">Toggle Visibility</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js"></script>
+    <script src="Script/animate.js"></script>
+</body>
+
+</html>

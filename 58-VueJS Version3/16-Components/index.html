@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue Components Example</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="container mt-4">
+            <h1 class="text-center">Product Collection</h1>
+            <div class="row">
+                <!-- Loop through products and render the ProductComponent -->
+                <div class="col-md-4" v-for="product in products" :key="product.id">
+                    <product-component :product="product"></product-component>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js"></script>
+    <script src="Scripts/components.js"></script>
+</body>
+
+</html>

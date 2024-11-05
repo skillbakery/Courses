@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Lifecycle Hooks with Real Examples</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ name }}</h1>
+       
+        <h3>Products (Updated Prices)</h3>
+        <ul>
+            <li v-for="product in products" :key="product.id">
+                <strong>{{ product.name }}</strong> - 
+                {{ product.description }} ({{ product.price }})
+            </li>
+        </ul>
+ 
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js"></script>
+    <script src="script/lifecycle-hooks.js"></script>
+</body>
+
+</html>

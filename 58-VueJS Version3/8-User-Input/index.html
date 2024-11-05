@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue v-model Examples</title>
+   
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        input,
+        select,
+        textarea {
+            width: 100%;
+            padding: 10px;
+        }
+
+        .checkbox-group label {
+            display: inline-block;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ title }}</h1>
+
+        <!-- Textbox with v-model and modifier (trim) -->
+        <div class="form-group">
+            <label for="textbox">Enter your name:</label>
+            <input type="text" id="textbox" v-model.trim="name">
+            <p>Value: {{ name }}</p>
+        </div>
+
+        <!-- Textarea with v-model -->
+        <div class="form-group">
+            <label for="textarea">Enter your feedback:</label>
+            <textarea id="textarea" v-model="feedback"></textarea>
+            <p>Feedback: {{ feedback }}</p>
+        </div>
+
+        <!-- Select dropdown with v-model -->
+        <div class="form-group">
+            <label for="select">Select your favorite color:</label>
+            <select id="select" v-model="selectedColor">
+                <option value="Red">Red</option>
+                <option value="Green">Green</option>
+                <option value="Blue">Blue</option>
+            </select>
+            <p>Selected Color: {{ selectedColor }}</p>
+        </div>
+
+        <!-- Radio buttons with v-model -->
+        <div class="form-group">
+            <label>Choose your gender:</label>
+            <div>
+                <input type="radio" id="male" 
+                value="Male" v-model="gender">
+                <label for="male">Male</label>
+            </div>
+            <div>
+                <input type="radio" id="female" 
+                value="Female" v-model="gender">
+                <label for="female">Female</label>
+            </div>
+            <p>Gender: {{ gender }}</p>
+        </div>
+
+        <!-- Checkbox with v-model (single) -->
+        <div class="form-group">
+            <label>
+                <input type="checkbox" v-model="subscribe"> Subscribe to newsletter
+            </label>
+            <p>Subscribed: {{ subscribe }}</p>
+        </div>
+
+        <!-- Checkbox with v-model (multiple) -->
+        <div class="form-group checkbox-group">
+            <label>Choose your hobbies:</label>
+            <div>
+                <label><input type="checkbox" value="Reading" v-model="hobbies"> Reading</label>
+                <label><input type="checkbox" value="Traveling" v-model="hobbies"> Traveling</label>
+                <label><input type="checkbox" value="Cooking" v-model="hobbies"> Cooking</label>
+            </div>
+            <p>Hobbies: {{ hobbies.join(', ') }}</p>
+        </div>
+
+        <!-- Number input with v-model and number modifier -->
+        <div class="form-group">
+            <label for="age">Enter your age:</label>
+            <input type="number" id="age" v-model.number="age">
+            <p>Age: {{ age }}</p>
+        </div>
+
+        <!-- Input with lazy modifier (updates only on blur) -->
+        <div class="form-group">
+            <label for="lazy">Enter your email (updates on blur):</label>
+            <input type="email" id="lazy" v-model.lazy="email">
+            <p>Email: {{ email }}</p>
+        </div>
+
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js"></script>
+    <script src="script/user-input.js"></script>
+</body>
+
+</html>

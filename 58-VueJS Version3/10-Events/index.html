@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue.js Shopping Cart</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="app" class="container">
+        <h1 class="my-4">Vue.js Shopping Cart</h1>
+
+        <div class="row">
+            <!-- Products Section -->
+            <div class="col-md-8">
+                <h2>Products</h2>
+                <div class="row">
+                    <div v-for="product in products" :key="product.id" class="col-md-6 mb-4">
+                        <div class="card h-100">
+                            <div class="card-body">
+                                <h5 class="card-title">{{ product.name }}</h5>
+                                <p class="card-text">{{ product.description }}</p>
+                                <p class="price"><strong>${{ product.price.toFixed(2) }}</strong></p>
+                                <button class="btn btn-primary" @click="addToCart(product)">
+                                    <i class="fas fa-cart-plus"></i> Add to Cart
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Cart Section -->
+            <div class="col-md-4">
+                <h2>Cart</h2>
+                <ul class="list-group mb-3">
+                    <li v-for="item in cart" :key="item.id"
+                        class="list-group-item d-flex justify-content-between align-items-center">
+                        <div>
+                            <h6>{{ item.name }} ({{ item.quantity }})</h6>
+                            <div>
+                                <button class="btn btn-sm btn-outline-secondary"
+                                    @click="decreaseQuantity(item)">-</button>
+                                <button class="btn btn-sm btn-outline-secondary"
+                                    @click="increaseQuantity(item)">+</button>
+                            </div>
+                        </div>
+                        <span class="badge bg-primary rounded-pill">${{ (item.price * item.quantity).toFixed(2)
+                            }}</span>
+                    </li>
+                </ul>
+                <p><strong>Total Items:</strong> {{ totalItems }}</p>
+                <p><strong>Total Amount:</strong> ${{ totalAmount.toFixed(2) }}</p>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js"></script>
+    <script src="Script/events.js"></script>
+</body>
+
+</html>

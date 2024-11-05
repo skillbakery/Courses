@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vue v-move and Move-class</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <div id="app">
+        <transition-group name="move" tag="div" move-class="move-item">
+            <div v-for="product in products" :key="product.id" class="product">
+                {{ product.name }}
+            </div>
+        </transition-group>
+        <button @click="shuffleProducts">Shuffle Products</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js"></script>
+    <script src="Script/animate.js"></script>
+</body>
+
+</html>

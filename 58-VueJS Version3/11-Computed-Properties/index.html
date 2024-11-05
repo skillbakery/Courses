@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue Computed Property Example</title>
+</head>
+
+<body>
+    <div id="app">
+        <h1>{{ name }}</h1>
+        <div>
+            <!-- User Input for Price -->
+            <label for="priceInput">Enter Maximum Price: </label>
+            <input type="number" v-model="priceInput" id="priceInput" />
+            <br/>
+            <!-- Price Filter Slider -->
+            <label for="priceRange">Filter by Price: </label>
+            <input type="range" v-model="priceRange" :min="minPrice" :max="maxPrice" step="50" id="priceRange" />
+            <span>{{ priceRange }}</span>
+        </div>
+        <button @click="updatePrice">Update Price of First Product</button>
+        <h3>Total Price: ${{ totalPrice }}</h3>
+        <div>
+            <!-- User can change product price -->
+            <input v-model="products[0].price" type="number" />
+            
+            <p>Current Price: ${{ products[0].price }}</p>
+        </div>
+        <!-- Filtered Products -->
+        <template v-for="product in filteredProducts" :key="product.id">
+            <div>
+                <h3>{{ product.name }} - ${{ product.price }}</h3>
+                <p>{{ product.description }}</p>
+            </div>
+        </template>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/3.2.37/vue.global.prod.min.js"></script>
+    <script src="Script/computed-property.js"></script>
+</body>
+
+</html>
