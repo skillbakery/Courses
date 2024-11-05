@@ -1,0 +1,93 @@
+[
+  {
+    "id": 1,
+    "name": "Master Javascript and jQuery",
+    "image": "./images/courses/jquery-and-javascript.jpeg",
+    "price": 99.99,
+    "description": "Become proficient in JavaScript and jQuery. This course teaches you how to build dynamic websites and applications. It covers JavaScript basics, jQuery essentials, DOM manipulation, and Ajax for building responsive interfaces."
+  },
+  {
+    "id": 5,
+    "name": "Browser Developer Tools",
+    "image": "./images/courses/browser-developer.jpeg",
+    "price": 79.99,
+    "description": "Unlock the full potential of browser developer tools. Ideal for web developers, designers, or QA engineers aiming to enhance debugging and performance optimization skills."
+  },
+  {
+    "id": 40,
+    "name": "Master Microsoft SQL Server 2022",
+    "image": "./images/courses/sqlserver.jpg",
+    "price": 124.99,
+    "description": "Master Microsoft SQL Server 2022 essentials. Designed for database administrators and developers, covering database design, data management, and advanced query techniques."
+  },
+  {
+    "id": 20,
+    "name": "Learn Cordova From Scratch",
+    "image": "./images/courses/cordova.jpeg",
+    "price": 69.99,
+    "description": "Develop cross-platform mobile applications using Cordova with HTML, CSS, and JavaScript. Ideal for mobile developers looking to expand their toolkit."
+  },
+  {
+    "id": 45,
+    "name": "CI-CD Continuous Integration and Continuous Deployment",
+    "image": "./images/courses/ci-cd.png",
+    "price": 89.99,
+    "description": "Streamline software development and automate deployment with CI/CD practices. Perfect for DevOps engineers and developers to enhance productivity and software quality."
+  },
+  {
+    "id": 23,
+    "name": "Cosmos DB",
+    "image": "./images/courses/cosmosdb.jpeg",
+    "price": 49.99,
+    "description": "Master Cosmos DB for building planet-scale applications. Covers database distribution, partitioning, and querying."
+  },
+  {
+    "id": 4,
+    "name": "Advanced jQuery Tips and Tricks",
+    "image": "./images/courses/advanced-jquery.jpeg",
+    "price": 99.99,
+    "description": "Elevate your jQuery skills with advanced techniques and best practices. Ideal for tackling complex web development tasks."
+  },
+  {
+    "id": 27,
+    "name": "ASP.Net Core MVC",
+    "image": "./images/courses/core-mvc.jpeg",
+    "price": 109.99,
+    "description": "Master ASP.Net Core MVC for building dynamic web applications using the Model-View-Controller architectural pattern."
+  },
+  {
+    "id": 18,
+    "name": "Master Ruby on Rails - For Beginners",
+    "image": "./images/courses/ruby-on-rails.jpeg",
+    "price": 99.99,
+    "description": "A beginner-friendly introduction to Ruby on Rails, guiding you to build dynamic web applications from scratch."
+  },
+  {
+    "id": 33,
+    "name": "Create Serverless Apps using Azure",
+    "image": "./images/courses/serverless-azure.jpg",
+    "price": 44.99,
+    "description": "Learn to create serverless applications with Azure, covering Azure Functions, Logic Apps, and event-driven architectures."
+  },
+  {
+    "id": 34,
+    "name": "Blazor Basics",
+    "image": "./images/courses/blazor.jpeg",
+    "price": 49.99,
+    "description": "Explore Blazor fundamentals and build modern web applications with .NET. Ideal for developers interested in creating dynamic UIs with C#."
+  },
+  {
+    "id": 8,
+    "name": "Master Backbone JS",
+    "image": "./images/courses/master-backbonejs.png",
+    "price": 89.99,
+    "description": "Unlock the power of Backbone.js for building client-side applications with rich, interactive UIs. Covers MVC concepts, collections, and routing."
+  },
+  {
+    "id": 6,
+    "name": "Master AngularJS",
+    "image": "./images/courses/angular.jpeg",
+    "price": 99.99,
+    "description": "Learn AngularJS from scratch, a popular JavaScript framework for building dynamic single-page applications."
+  }
+]
