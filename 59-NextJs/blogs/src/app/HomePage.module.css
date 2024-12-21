@@ -1,0 +1,30 @@
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 1rem;
+}
+
+.title {
+    color: #1e40af;
+    /* Tailwind blue-900 */
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+.description {
+    font-style: italic;
+    color: #6b7280;
+    /* Tailwind gray-500 */
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.card {
+    border: 2px solid #d1d5db;
+    /* Tailwind gray-300 */
+    transition: transform 0.3s ease;
+}
+
+.card:hover {
+    transform: scale(1.05);
+}
