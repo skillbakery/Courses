@@ -1,0 +1,19 @@
+{
+  "name": "rust-node",
+  "version": "1.0.0",
+  "description": "rust on node",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "rust",
+    "node"
+  ],
+  "author": "skillbakery",
+  "license": "ISC",
+  "dependencies": {
+    "@wasm-tool/node": "^0.1.0"
+  }
+}
