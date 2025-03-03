@@ -1,0 +1,15 @@
+{% extends 'smartweb/base.html' %}
+
+{% block title %}Sign Up{% endblock %}
+
+{% block content %}
+<div class="card shadow-lg p-4 w-50 mx-auto">
+    <h2 class="text-center text-primary">Register</h2>
+    <form method="POST">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit" class="btn btn-success w-100">Sign Up</button>
+    </form>
+    <p class="text-center mt-3">Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+</div>
+{% endblock %}

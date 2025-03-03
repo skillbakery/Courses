@@ -1,0 +1,23 @@
+{% extends 'smartweb/base.html' %}
+
+{% block title %}Journal List{% endblock %}
+
+{% block content %}
+<h2>All Journal Entries</h2>
+<div class="journal-container">
+    <a href="{% url 'journal_create' %}" class="btn btn-primary mb-3">+ Add New Journal</a>
+
+    {% for entry in journal %}
+    <div class="journal-entry">
+        <h3><a href="{% url 'journal-detail' pk=entry.id %}">{{ entry.title }}</a></h3>
+        <p>{{ entry.content|truncatewords:20 }}</p>
+        <small>Published on {{ entry.created_at }}</small>
+        <small>Created by: {{ entry.user.username }}</small>
+        <a href="{% url 'journal_edit' entry.pk %}">Edit</a>
+        <a href="{% url 'journal_delete' entry.pk %}">Delete</a>
+    </div>
+    {% empty %}
+    <p>No journal entries found.</p>
+    {% endfor %}
+</div>
+{% endblock %}

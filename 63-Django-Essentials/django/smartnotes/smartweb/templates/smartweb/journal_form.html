@@ -1,0 +1,50 @@
+{% extends 'smartweb/base.html' %}
+
+{% block title %}New Journal Entry{% endblock %}
+
+{% block content %}
+<div class="card shadow-lg p-4">
+    <h2 class="text-primary text-center">Create a New Journal Entry</h2>
+
+    <form method="POST" class="mt-4" enctype="multipart/form-data">
+        {% csrf_token %}
+        <!-- Display Form Fields -->
+        <!-- {{ form.as_p }} -->
+        <div class="mb-3">
+            <label for="{{ form.title.id_for_label }}" class="form-label">{{ form.title.label }}</label>
+            {{ form.title }}
+            {% if form.title.errors %}
+            <div class="text-danger">
+                {% for error in form.title.errors %}
+                <p>{{ error }}</p>
+                {% endfor %}
+            </div>
+            {% endif %}
+        </div>
+        
+        <div class="mb-3">
+            <label for="{{ form.content.id_for_label }}" class="form-label">{{ form.content.label }}</label>
+            {{ form.content }}
+        </div>
+        <div class="mb-3">
+            <label for="{{ form.file_upload.id_for_label }}" class="form-label">{{ form.file_upload.label }}</label>
+            {{ form.file_upload }}
+        </div>
+        <!-- Show Validation Errors -->
+        <!-- {% if form.errors %} -->
+        <!-- <div class="alert alert-danger">
+            <strong>Error:</strong> Please correct the following issues:
+            <ul>
+                {% for field, errors in form.errors.items %}
+                {% for error in errors %}
+                <li>{{ field|capfirst }}: {{ error }}</li>
+                {% endfor %}
+                {% endfor %}
+            </ul>
+        </div> -->
+        <!-- {% endif %} -->
+        <button type="submit" class="btn btn-success">Save Journal</button>
+        <a href="{% url 'journal-list' %}" class="btn btn-secondary">Cancel</a>
+    </form>
+</div>
+{% endblock %}
