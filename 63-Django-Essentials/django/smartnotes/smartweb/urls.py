@@ -17,4 +17,7 @@ urlpatterns = [
     path('register/', views.SignupView.as_view(), name='register'),
     path('widget-demo/', views.widget_demo_view, name='widget-demo'),
     path('basic-form/', views.BasicJournalFormView.as_view(), name='basic-form'),
+    path('api/journals/', views.JournalListAPIView.as_view(), name='journal-list-api'),
+    path('api/token/', views.TokenObtainPairView.as_view(), name='token_obtain_pair'),  # Get access & refresh token
+    path('api/token/refresh/', views.TokenRefreshView.as_view(), name='token_refresh'),  # Refresh token
 ]

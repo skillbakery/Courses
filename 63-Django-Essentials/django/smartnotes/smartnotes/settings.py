@@ -28,7 +28,7 @@ SECRET_KEY = 'django-insecure-qnb_)q#30__8-++uu+-ss%j_c6w@4z*3*kde&s#1_3wgq*0bj1
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['django-env.eba-mmvmhy3d.us-west-2.elasticbeanstalk.com','172.31.9.78']
+ALLOWED_HOSTS = ['django-env.eba-mmvmhy3d.us-west-2.elasticbeanstalk.com','172.31.9.78','127.0.0.1']
 
 
 # Application definition
@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'smartweb',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -78,10 +79,10 @@ WSGI_APPLICATION = 'smartnotes.wsgi.application'
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
 DATABASES = {
-    # 'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': BASE_DIR / 'db.sqlite3',
-    # }
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
     # 'default': {
     #     'ENGINE': 'django.db.backends.postgresql',
     #     'NAME': 'smartweb',
@@ -90,14 +91,14 @@ DATABASES = {
     #     'HOST': 'localhost',
     #     'PORT': '5432',
     # }
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'smartweb',
-        'USER': 'postgres',
-        'PASSWORD': 'burlbed!12',
-        'HOST': 'django-postgresql.cfbqf9sxvng6.us-east-1.rds.amazonaws.com',
-        'PORT': '5432',
-    }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'smartweb',
+    #     'USER': 'postgres',
+    #     'PASSWORD': 'burlbed!12',
+    #     'HOST': 'django-postgresql.cfbqf9sxvng6.us-east-1.rds.amazonaws.com',
+    #     'PORT': '5432',
+    # }
 }
 
 
@@ -153,16 +154,35 @@ USE_S3 = os.getenv("USE_S3", "False") == "True"
 if USE_S3:
     # AWS S3 Configuration
     DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
-    AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
-    AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
-    AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
-    AWS_S3_REGION_NAME = os.getenv("AWS_S3_REGION_NAME", "us-east-1")
-    AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
-    AWS_QUERYSTRING_AUTH = False
-    MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
+    # AWS_ACCESS_KEY_ID = os.getenv("AWS_ACCESS_KEY_ID")
+    # AWS_SECRET_ACCESS_KEY = os.getenv("AWS_SECRET_ACCESS_KEY")
+    # AWS_STORAGE_BUCKET_NAME = os.getenv("AWS_STORAGE_BUCKET_NAME")
+    # AWS_S3_REGION_NAME = os.getenv("AWS_S3_REGION_NAME", "us-east-1")
+    # AWS_S3_CUSTOM_DOMAIN = f"{AWS_STORAGE_BUCKET_NAME}.s3.amazonaws.com"
+    # AWS_QUERYSTRING_AUTH = False
+    # MEDIA_URL = f"https://{AWS_S3_CUSTOM_DOMAIN}/"
     MEDIA_ROOT = os.path.join(BASE_DIR,'smartweb', "media")  # Safe fallback
 else:
     #Local Storage
     MEDIA_URL = "/media/"
     MEDIA_ROOT = os.path.join(BASE_DIR,'smartweb', "media")
 
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': (
+        'rest_framework_simplejwt.authentication.JWTAuthentication',
+    ),
+    'DEFAULT_PERMISSION_CLASSES': (
+        'rest_framework.permissions.IsAuthenticated',  # Restrict API to authenticated users
+    ),
+}
+
+from datetime import timedelta
+
+SIMPLE_JWT = {
+    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
+    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
+    "ROTATE_REFRESH_TOKENS": True,
+    "BLACKLIST_AFTER_ROTATION": True,
+    "ALGORITHM": "HS256",
+    "SIGNING_KEY": "SaLij9s2xpkts28WUTaGjCzPTcrgbwPcvRXRrzUYV-luKfQCsJppnSMoDpZ9xpyUIhU",
+}

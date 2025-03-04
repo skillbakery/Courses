@@ -161,3 +161,29 @@ class JournalDetailView(DetailView):
     model = Journal
     context_object_name="journal"
     template_name = "smartweb/journal_detail.html"
+
+from rest_framework.views import APIView
+from rest_framework.response import Response
+from rest_framework.permissions import IsAuthenticated
+from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+from rest_framework import status
+from .models import Journal
+from .serializers import JournalSerializer
+
+class JournalListAPIView(APIView):
+    permission_classes = [IsAuthenticated]  # Only authenticated users can access
+
+    def get(self, request):
+        journals = Journal.objects.all()
+        serializer = JournalSerializer(journals, many=True)
+        return Response(serializer.data)
+
+class CustomTokenObtainPairView(TokenObtainPairView):
+    def post(self, request, *args, **kwargs):
+        response = super().post(request, *args, **kwargs)
+        return Response({"access": response.data["access"], "refresh": response.data["refresh"]}, status=status.HTTP_200_OK)
+
+class CustomTokenRefreshView(TokenRefreshView):
+    def post(self, request, *args, **kwargs):
+        response = super().post(request, *args, **kwargs)
+        return Response({"access": response.data["access"]}, status=status.HTTP_200_OK)    

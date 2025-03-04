@@ -9,6 +9,8 @@ colorama==0.4.6
 Django==5.1.6
 django-environ==0.12.0
 django-storages==1.14.5
+djangorestframework==3.15.2
+djangorestframework_simplejwt==5.5.0
 gunicorn==23.0.0
 idna==3.10
 jmespath==1.0.1
@@ -16,6 +18,7 @@ packaging==24.2
 pathspec==0.10.1
 psycopg2==2.9.10
 psycopg2-binary==2.9.10
+PyJWT==2.9.0
 pypiwin32==223
 python-dateutil==2.9.0.post0
 pywin32==308
