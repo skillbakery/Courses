@@ -1,0 +1,6 @@
+appName: datalytic-in
+imageName: 128173590347.dkr.ecr.us-east-1.amazonaws.com/datalytic-repo
+imagePullSecretName: datalytic-in
+serviceName: datalytic-service
+serviceAddress: datalytic.in
+servicePort: 80
