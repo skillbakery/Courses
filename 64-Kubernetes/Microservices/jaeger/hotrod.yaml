@@ -1,0 +1,39 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: hotrod
+  namespace: observability
+spec:
+  type: NodePort
+  selector:
+    app: hotrod
+  ports:
+    - name: web
+      port: 8080
+      targetPort: 8080
+      nodePort: 30080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hotrod
+  namespace: observability
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: hotrod
+  template:
+    metadata:
+      labels:
+        app: hotrod
+    spec:
+      containers:
+        - name: hotrod
+          image: jaegertracing/example-hotrod:latest
+          args: ["all"]
+          env:
+            - name: JAEGER_AGENT_HOST
+              value: "jaeger"
+          ports:
+            - containerPort: 8080
