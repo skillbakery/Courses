@@ -20,7 +20,7 @@ jobs:
 
       - name: Install Dependencies
         working-directory: 67-LangChain-OpenAI-React/Module-10/backend
-        run: npm install
+        run: npm install --legacy-peer-deps     # Temporary fix
 
       - name: Run Tests
         working-directory: 67-LangChain-OpenAI-React/Module-10/backend
