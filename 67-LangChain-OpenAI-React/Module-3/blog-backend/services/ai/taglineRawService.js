@@ -1,0 +1,21 @@
+import OpenAI from "openai";
+
+const client = new OpenAI({
+  apiKey: process.env.OPENAI_API_KEY
+});
+
+export async function generateTaglineRaw(product) {
+
+  const response = await client.chat.completions.create({
+    model: "gpt-4o-mini",
+    messages: [
+      {
+        role: "user",
+        content: `Write a short tagline for: ${product}`
+      }
+    ]
+  });
+
+  return response.choices[0].message.content;
+
+}

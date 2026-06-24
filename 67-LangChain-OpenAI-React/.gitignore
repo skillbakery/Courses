@@ -1,0 +1,16 @@
+*.zip
+node_modules/
+*.zip
+.env
+.env.*
+bin/
+obj/
+**pycache**/
+*.pyc
+*.sqlite3
+.DS_Store
+Thumbs.db
+**/node_modules/
+**/bin/
+**/obj/
+**/**pycache**/
