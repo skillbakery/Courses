@@ -1,23 +1,30 @@
 name: AI Career Coach
 
 on:
-  push:
-    branches:
-      - main
+push:
+branches:
+  - main
 
 jobs:
-  deploy:
-    runs-on: ubuntu-latest
+deploy:
+runs-on: ubuntu-latest
 
-    steps:
-      - uses: actions/checkout@v3
+steps:
+  - name: Checkout Code
+    uses: actions/checkout@v4
 
-      - uses: actions/setup-node@v3
-        with:
-          node-version: 18
+  - name: Setup Node.js
+    uses: actions/setup-node@v4
+    with:
+      node-version: 22
 
-      - run: npm install
+  - name: Install Dependencies
+    working-directory: 67-LangChain-OpenAI-React/Module-10
+    run: npm install
 
-      - run: node tests/careerCoach.test.js
+  - name: Run Tests
+    working-directory: 67-LangChain-OpenAI-React/Module-10
+    run: node tests/careerCoach.test.js
 
-      - run: echo "Deploying..."
+  - name: Deploy
+    run: echo "Deploying..."
